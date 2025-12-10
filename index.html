@@ -578,6 +578,13 @@
             // Get template paths
             const templates = document.querySelectorAll('.ink-stroke-anim');
             
+            // Determine if we are on a mobile screen
+            const isMobile = window.innerWidth < 768;
+            
+            // Optimize settings based on device
+            const bristleCount = isMobile ? 10 : 20; // Fewer paths for mobile performance
+            const loopDelay = isMobile ? 4500 : 2500; // Single loop start delay for desktop removed, but we set the phase later
+
             // Recursive function to animate one random stroke at a time
             const animateOne = () => {
                 // Pick a random template path
@@ -603,10 +610,6 @@
                 const resetY = svgCenterY - pathCenterY;
 
                 // 4. Define Scatter Ranges (Adjusted for screen aspect ratio)
-                const isMobile = window.innerWidth < 768;
-                
-                // On mobile (narrow), restrict horizontal scatter, allow vertical
-                // On desktop (wide), allow wide scatter
                 const scatterWidth = isMobile ? 400 : 1200; // +/- 200 vs +/- 600
                 const scatterHeight = isMobile ? 800 : 600;
 
@@ -622,7 +625,6 @@
                 // ---------------------------------------------------------
 
                 // MULTI-BRISTLE GENERATOR
-                const bristleCount = 20; 
                 const strokeWidthSpread = 35; 
                 const bristles = [];
 
@@ -687,22 +689,24 @@
                 });
                 
                 // 2. Linger
-                tl.to({}, { duration: 1 + Math.random() });
+                tl.to({}, { duration: isMobile ? 0.5 : 1 + Math.random() }); // Shorter linger on mobile
                 
                 // 3. Fade out
                 tl.to(bristles.map(b => b.element), {
                     opacity: 0,
-                    duration: 1.5,
+                    duration: isMobile ? 1 : 1.5, // Faster fade on mobile
                     ease: "power2.in"
                 });
             };
 
-            // START DUAL LOOPS
-            // Loop 1 starts immediately
+            // START ANIMATION LOOP(S)
+            // Always run the first loop
             animateOne();
             
-            // Loop 2 starts after 2 seconds to offset the phase
-            setTimeout(animateOne, 2500);
+            // Only run the second loop on Desktop (not Mobile)
+            if (!isMobile) {
+                setTimeout(animateOne, loopDelay);
+            }
         }
 
         // Menu Toggle
