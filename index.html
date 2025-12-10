@@ -88,104 +88,35 @@
             flex-direction: column;
         }
 
-        /* Animation: Schematic Rings (Integrator) */
-        .schematic-ring {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            border: 1px dashed rgba(37, 99, 235, 0.3); /* Blue accent */
-            border-radius: 50%;
-        }
-        .ring-1 { width: 100px; height: 100px; animation: spin 10s linear infinite; }
-        .ring-2 { width: 180px; height: 180px; animation: spin-rev 15s linear infinite; border-color: rgba(0,0,0,0.1); }
-        .ring-3 { width: 260px; height: 260px; animation: spin 20s linear infinite; border-style: solid; border-width: 1px; border-color: rgba(37, 99, 235, 0.1); }
-        
-        @keyframes spin { 100% { transform: translate(-50%, -50%) rotate(360deg); } }
-        @keyframes spin-rev { 100% { transform: translate(-50%, -50%) rotate(-360deg); } }
+        /* --- NEW VISUAL STYLES (System and Flow) --- */
 
-        /* Animation: Flow Chart (Software) */
-        .fc-container {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 240px;
-            height: 240px;
+        /* System Diagram (Integrator) */
+        .system-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            background: #f0f0f0; /* Match card bg */
         }
         
-        /* Nodes */
-        .fc-node {
-            position: absolute;
-            border: 1px solid #333;
-            background: #111; /* Dark background matching container */
-            z-index: 10;
-            transition: border-color 0.3s, box-shadow 0.3s;
+        /* Flow Diagram (Software) */
+        .flow-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(4, 1fr);
+            gap: 4px;
+            width: 80%;
+            height: 80%;
+            background: rgba(0,0,0,0.5);
+            border: 1px solid rgba(37, 99, 235, 0.2);
+            padding: 8px;
+            border-radius: 4px;
         }
-        
-        .fc-start { width: 80px; height: 30px; top: 20px; left: calc(50% - 40px); border-radius: 2px; }
-        .fc-decision { width: 40px; height: 40px; top: 90px; left: calc(50% - 20px); transform: rotate(45deg); }
-        .fc-end-l { width: 60px; height: 30px; top: 180px; left: calc(50% - 100px); border-radius: 2px; }
-        .fc-end-r { width: 60px; height: 30px; top: 180px; left: calc(50% + 40px); border-radius: 2px; }
-
-        /* Static Lines */
-        .fc-line { position: absolute; background: #333; z-index: 0; }
-        .line-v1 { width: 1px; height: 40px; top: 50px; left: 50%; } /* Start to Decision */
-        .line-h { width: 140px; height: 1px; top: 110px; left: calc(50% - 70px); } /* Crossbar */
-        .line-v-l { width: 1px; height: 70px; top: 110px; left: calc(50% - 70px); } /* Drop Left */
-        .line-v-r { width: 1px; height: 70px; top: 110px; left: calc(50% + 70px); } /* Drop Right */
-
-        /* Moving Dots */
-        .fc-dot {
-            position: absolute;
-            width: 4px;
-            height: 4px;
-            background: var(--accent);
-            border-radius: 50%;
-            box-shadow: 0 0 6px var(--accent);
+        .flow-block {
+            background: rgba(37, 99, 235, 0.05); /* Light blue base */
+            border-radius: 2px;
+            transform: scale(0);
             opacity: 0;
-            z-index: 20;
-            pointer-events: none;
         }
-
-        /* Keyframes */
-        @keyframes pulse-border {
-            0%, 100% { border-color: #333; box-shadow: none; }
-            20%, 60% { border-color: #2563eb; box-shadow: 0 0 12px rgba(37, 99, 235, 0.4); }
-        }
-
-        @keyframes move-down-center {
-            0% { top: 50px; left: 50%; opacity: 0; }
-            10% { opacity: 1; }
-            90% { top: 90px; left: 50%; opacity: 1; }
-            100% { top: 90px; left: 50%; opacity: 0; }
-        }
-
-        @keyframes move-path-left {
-            0% { top: 110px; left: 50%; opacity: 0; }
-            10% { opacity: 1; }
-            30% { top: 110px; left: calc(50% - 70px); } /* Move Left */
-            60% { top: 180px; left: calc(50% - 70px); opacity: 1; } /* Move Down */
-            70% { opacity: 0; }
-            100% { opacity: 0; }
-        }
-
-        @keyframes move-path-right {
-            0% { top: 110px; left: 50%; opacity: 0; }
-            10% { opacity: 1; }
-            30% { top: 110px; left: calc(50% + 70px); } /* Move Right */
-            60% { top: 180px; left: calc(50% + 70px); opacity: 1; } /* Move Down */
-            70% { opacity: 0; }
-            100% { opacity: 0; }
-        }
-
-        /* Animation Classes */
-        .anim-start { animation: pulse-border 4s infinite; }
-        .anim-dot-1 { animation: move-down-center 4s infinite 0.2s; }
-        .anim-decision { animation: pulse-border 4s infinite 1.2s; }
-        .anim-dot-l { animation: move-path-left 4s infinite 1.4s; }
-        .anim-dot-r { animation: move-path-right 4s infinite 1.4s; }
-        .anim-end { animation: pulse-border 4s infinite 2.5s; }
 
         /* INK STROKE STYLES */
         .ink-stroke-anim {
@@ -228,8 +159,8 @@
     <!-- INK FILTERS (Invisible utility) -->
     <svg style="display: none;">
         <defs>
+            <!-- Filter for Background Ink Simulation -->
             <filter id="ink-vertical" x="-50%" y="-50%" width="200%" height="200%">
-                <!-- Fine noise to roughen individual bristles -->
                 <feTurbulence type="fractalNoise" baseFrequency="0.5" numOctaves="3" result="noise" />
                 <feDisplacementMap in="SourceGraphic" in2="noise" scale="4" />
             </filter>
@@ -366,51 +297,24 @@
             </div>
             <div class="md:col-span-6 md:col-start-7 space-y-24">
                 
-                <!-- Concept 1: Integrator (Schematic) -->
+                <!-- Concept 1: Integrator (Dynamic Constellation Mesh) -->
                 <div class="group">
-                    <div class="h-[400px] w-full bg-[#f8f8f8] mb-6 overflow-hidden relative border border-gray-100">
-                         <!-- Schematic Animation -->
-                         <div class="schematic-ring ring-1"></div>
-                         <div class="schematic-ring ring-2"></div>
-                         <div class="schematic-ring ring-3"></div>
-                         <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3 h-3 bg-blue-600 rounded-full shadow-[0_0_20px_rgba(37,99,235,0.5)]"></div>
-                         
-                         <!-- Grid Overlay -->
-                         <div class="absolute inset-0" style="background-image: radial-gradient(#ccc 1px, transparent 1px); background-size: 20px 20px; opacity: 0.3;"></div>
+                    <div class="h-[180px] w-full bg-[#f8f8f8] mb-6 overflow-hidden relative border border-gray-100 flex items-center justify-center">
+                         <canvas id="integrator-canvas" class="system-container"></canvas>
                     </div>
                     <h3 class="text-2xl font-bold mb-2">Integrator de Sisteme</h3>
                     <p class="text-gray-600">Gestiunea completă a ciclului de viață al activelor hardware. De la achiziție și implementare, până la securizare și retragere.</p>
                 </div>
 
-                <!-- Concept 2: Software (Flow Chart) -->
+                <!-- Concept 2: Software (Flow Diagram - Sequential Logic Grid) -->
                 <div class="group">
-                    <div class="h-[400px] w-full bg-[#111] mb-6 overflow-hidden relative">
-                         <!-- Flow Chart Animation Container -->
-                         <div class="fc-container">
-                             <!-- Lines -->
-                             <div class="fc-line line-v1"></div>
-                             <div class="fc-line line-h"></div>
-                             <div class="fc-line line-v-l"></div>
-                             <div class="fc-line line-v-r"></div>
-
-                             <!-- Moving Dots -->
-                             <div class="fc-dot anim-dot-1"></div>
-                             <div class="fc-dot anim-dot-l"></div>
-                             <div class="fc-dot anim-dot-r"></div>
-
-                             <!-- Nodes -->
-                             <div class="fc-node fc-start anim-start"></div>
-                             <div class="fc-node fc-decision anim-decision"></div>
-                             <div class="fc-node fc-end-l anim-end"></div>
-                             <div class="fc-node fc-end-r anim-end"></div>
-                         </div>
-                         
-                         <!-- Code Overlay Look -->
-                         <div class="absolute left-8 top-0 h-full w-[1px] bg-gray-800"></div>
-                         <div class="absolute inset-0 bg-gradient-to-b from-transparent to-[#111] opacity-50"></div>
+                    <div class="h-[180px] w-full bg-[#111] mb-6 overflow-hidden relative border border-gray-800 flex items-center justify-center">
+                        <div id="flow-diagram" class="flow-container">
+                            <!-- 16 blocks added by JS -->
+                        </div>
                     </div>
                     <h3 class="text-2xl font-bold mb-2">Arhitectură Software</h3>
-                    <p class="text-gray-600">Dezvoltare personalizată care acoperă decalajul dintre limitările software-ului comercial și nevoile operaționale specifice.</p>
+                    <p class="text-gray-600">Dezvoltare personalizată care acopere decalajul dintre limitările software-ului comercial și nevoile operaționale specifice.</p>
                 </div>
 
             </div>
@@ -569,10 +473,172 @@
                 ease: "power3.out"
             });
             
-            // Trigger Random Ink Animations
+            // Trigger Animations
             startRandomInk();
+            initNetworkAnimation(); 
+            initFlowDiagram(); 
         });
 
+        // -----------------------------------------------------------------
+        // NEW ANIMATION 1: INTEGRATOR NETWORK (CANVAS MESH)
+        // -----------------------------------------------------------------
+        function initNetworkAnimation() {
+            const canvas = document.getElementById('integrator-canvas');
+            const ctx = canvas.getContext('2d');
+            let width, height;
+            let particles = [];
+
+            // Configuration
+            const particleCount = 15; // Decreased for cleaner look
+            const connectionDistance = 100; // Pixels
+            const mouseInteractionDistance = 150;
+
+            // Resize handling
+            function resize() {
+                const parent = canvas.parentElement;
+                width = parent.clientWidth;
+                height = parent.clientHeight;
+                canvas.width = width;
+                canvas.height = height;
+                initParticles();
+            }
+            window.addEventListener('resize', resize);
+            
+            // Particle Class
+            class Particle {
+                constructor() {
+                    this.x = Math.random() * width;
+                    this.y = Math.random() * height;
+                    this.vx = (Math.random() - 0.5) * 0.5; // Slow velocity
+                    this.vy = (Math.random() - 0.5) * 0.5;
+                    // Greater variation: small satellites to large hubs
+                    this.size = 2 + Math.random() * 4; 
+                }
+
+                update() {
+                    this.x += this.vx;
+                    this.y += this.vy;
+
+                    // Bounce off walls
+                    if (this.x < 0 || this.x > width) this.vx *= -1;
+                    if (this.y < 0 || this.y > height) this.vy *= -1;
+                }
+
+                draw() {
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                    ctx.fillStyle = '#2563eb'; // Royal Blue
+                    ctx.fill();
+                }
+            }
+
+            function initParticles() {
+                particles = [];
+                for (let i = 0; i < particleCount; i++) {
+                    particles.push(new Particle());
+                }
+            }
+
+            // Animation Loop
+            function animate() {
+                ctx.clearRect(0, 0, width, height);
+                
+                // Update and draw particles
+                particles.forEach(p => {
+                    p.update();
+                    p.draw();
+                });
+
+                // Draw Connections
+                for (let i = 0; i < particles.length; i++) {
+                    for (let j = i + 1; j < particles.length; j++) {
+                        const dx = particles[i].x - particles[j].x;
+                        const dy = particles[i].y - particles[j].y;
+                        const dist = Math.sqrt(dx * dx + dy * dy);
+
+                        if (dist < connectionDistance) {
+                            ctx.beginPath();
+                            ctx.strokeStyle = `rgba(37, 99, 235, ${1 - dist / connectionDistance})`; // Fade with distance
+                            ctx.lineWidth = 1;
+                            ctx.moveTo(particles[i].x, particles[i].y);
+                            ctx.lineTo(particles[j].x, particles[j].y);
+                            ctx.stroke();
+                        }
+                    }
+                }
+                
+                requestAnimationFrame(animate);
+            }
+
+            // Start
+            resize(); // Initial sizing
+            animate();
+        }
+
+
+        // -----------------------------------------------------------------
+        // NEW ANIMATION 2: SOFTWARE FLOW DIAGRAM
+        // -----------------------------------------------------------------
+        function initFlowDiagram() {
+            const container = document.getElementById('flow-diagram');
+            const blocks = [];
+
+            // Create 16 blocks (4x4 grid)
+            for (let i = 0; i < 16; i++) {
+                const block = document.createElement('div');
+                block.classList.add('flow-block');
+                container.appendChild(block);
+                blocks.push(block);
+            }
+
+            // Define flow sequence (0-indexed)
+            // Example flow: Start (0) -> Process (4, 5) -> Decision (9) -> Branch Left (12) / Branch Right (14)
+            const flowSequence = [
+                0, 4, 5, 6, 10, 14, // Main path
+                // Branching off 6/7
+                11, 7, 3, 2, 1, 0 // Return path
+            ];
+
+            const tl = gsap.timeline({ repeat: -1, repeatDelay: 2 });
+
+            flowSequence.forEach((index, i) => {
+                const block = blocks[index];
+                const blockColor = index === 9 ? 'rgba(255,165,0,0.8)' : 'rgba(37, 99, 235, 0.8)';
+                
+                // Animate Block ON (Scale/Opacity Up)
+                tl.to(block, {
+                    scale: 1,
+                    opacity: 1,
+                    duration: 0.2,
+                    background: blockColor,
+                    ease: "power2.out"
+                }, i * 0.3); // Stagger by 0.3s
+
+                // Animate Block OFF (Scale/Opacity Down, Fade to Blue Base)
+                tl.to(block, {
+                    scale: 0.8,
+                    opacity: 0.4,
+                    background: 'rgba(37, 99, 235, 0.05)',
+                    duration: 0.5,
+                    ease: "power1.in"
+                }, i * 0.3 + 0.3); // Starts 0.3s after it turns ON
+            });
+            
+             // Start animation when section is in view
+            ScrollTrigger.create({
+                trigger: "#about",
+                start: "top 70%",
+                onEnter: () => tl.play(),
+                onLeaveBack: () => tl.pause(0),
+                once: true 
+            });
+            tl.pause(); // Start paused
+        }
+
+
+        // -----------------------------------------------------------------
+        // BACKGROUND INK BRUSH SIMULATION
+        // -----------------------------------------------------------------
         function startRandomInk() {
             const svgCanvas = document.getElementById('ink-canvas');
             // Get template paths
@@ -583,7 +649,7 @@
             
             // Optimize settings based on device
             const bristleCount = isMobile ? 10 : 20; // Fewer paths for mobile performance
-            const loopDelay = isMobile ? 4500 : 2500; // Single loop start delay for desktop removed, but we set the phase later
+            const loopDelay = isMobile ? 4500 : 2500; 
 
             // Recursive function to animate one random stroke at a time
             const animateOne = () => {
