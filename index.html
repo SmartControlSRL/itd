@@ -322,84 +322,90 @@
     </section>
 
     <!-- SERVICES LIST -->
-    <section id="services" class="py-32 px-4 md:px-12 bg-[#1a1a1a] text-white relative overflow-hidden">
-        <div class="flex flex-col md:flex-row justify-between items-end mb-24 border-b border-gray-800 pb-8 relative z-10">
-            <h2 class="text-5xl md:text-7xl font-bold tracking-tighter">EXPERTIZĂ</h2>
-            <p class="text-gray-400 text-right max-w-sm mt-8 md:mt-0">
-                O suită completă de servicii tehnice concepute pentru sectorul public și privat din România.
-            </p>
-        </div>
+    <section id="services" class="py-24 px-4 md:px-12 relative z-10">
+        <!-- Structural Divider -->
+        <div class="w-full h-[1px] bg-black/10 mb-12"></div>
 
-        <div class="space-y-0 relative z-10">
-            <!-- Service 1 -->
-            <div class="service-row group border-b border-gray-800 py-12 hover:bg-[#222] transition-colors cursor-pointer relative overflow-hidden">
-                <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center relative z-10">
-                    <div class="md:col-span-1 text-gray-500 font-mono">01</div>
-                    <div class="md:col-span-5">
-                        <h3 class="text-3xl md:text-4xl font-serif italic group-hover:text-blue-500 transition-colors">Infrastructură & Hardware</h3>
-                    </div>
-                    <div class="service-text md:col-span-4 text-gray-400 text-sm leading-relaxed opacity-0 translate-y-4 md:opacity-0 md:translate-y-4 md:group-hover:opacity-100 md:group-hover:translate-y-0 transition-all duration-500">
-                        Workplace & Mobility (Dell, Lenovo, HP).<br>
-                        Soluții Data Center & Rețelistică.<br>
-                        Servicii de Printing Gestionat (MPS).
-                    </div>
-                    <div class="md:col-span-2 flex justify-end">
-                        <i data-lucide="server" class="w-8 h-8 text-gray-600 group-hover:text-white transition-colors"></i>
-                    </div>
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16">
+            
+            <!-- Header Column -->
+            <div class="lg:col-span-4 flex flex-col justify-between">
+                <div>
+                    <h2 class="text-4xl md:text-5xl font-bold tracking-tighter mb-6 text-[#1a1a1a]">EXPERTIZĂ</h2>
+                    <p class="text-gray-600 leading-relaxed text-lg max-w-sm">
+                        O suită tehnică condensată, concepută pentru precizie și scalabilitate în sectorul public și privat.
+                    </p>
+                </div>
+                <!-- Decorative Arrow/Indicator for large screens -->
+                <div class="hidden lg:block mb-8">
+                     <i data-lucide="corner-right-down" class="w-8 h-8 text-gray-400"></i>
                 </div>
             </div>
 
-            <!-- Service 2 -->
-            <div class="service-row group border-b border-gray-800 py-12 hover:bg-[#222] transition-colors cursor-pointer relative overflow-hidden">
-                <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center relative z-10">
-                    <div class="md:col-span-1 text-gray-500 font-mono">02</div>
-                    <div class="md:col-span-5">
-                        <h3 class="text-3xl md:text-4xl font-serif italic group-hover:text-blue-500 transition-colors">Licențiere Software</h3>
+            <!-- Compact 2x2 Grid -->
+            <div class="lg:col-span-8">
+                <div class="grid grid-cols-1 md:grid-cols-2 border-t border-l border-gray-200">
+                    
+                    <!-- Service 1 -->
+                    <div class="group p-8 border-r border-b border-gray-200 hover:bg-white hover:shadow-sm transition-all duration-300 relative overflow-hidden">
+                        <div class="absolute top-0 left-0 w-1 h-0 bg-blue-600 group-hover:h-full transition-all duration-300"></div>
+                        <div class="flex justify-between items-start mb-6">
+                            <span class="font-mono text-xs text-gray-400 tracking-widest">01</span>
+                            <i data-lucide="server" class="w-5 h-5 text-gray-400 group-hover:text-blue-600 transition-colors"></i>
+                        </div>
+                        <h3 class="text-2xl font-serif italic mb-4 text-[#1a1a1a]">Infrastructură & Hardware</h3>
+                        <ul class="text-sm text-gray-600 space-y-2">
+                            <li class="flex items-center gap-2"><span class="w-1 h-1 bg-gray-300 rounded-full group-hover:bg-blue-600 transition-colors"></span>Workplace & Mobility (Dell, Lenovo)</li>
+                            <li class="flex items-center gap-2"><span class="w-1 h-1 bg-gray-300 rounded-full group-hover:bg-blue-600 transition-colors"></span>Soluții Data Center & Rețelistică</li>
+                            <li class="flex items-center gap-2"><span class="w-1 h-1 bg-gray-300 rounded-full group-hover:bg-blue-600 transition-colors"></span>Printing Gestionat (MPS)</li>
+                        </ul>
                     </div>
-                    <div class="service-text md:col-span-4 text-gray-400 text-sm leading-relaxed opacity-0 translate-y-4 md:opacity-0 md:translate-y-4 md:group-hover:opacity-100 md:group-hover:translate-y-0 transition-all duration-500">
-                        Microsoft 365 Volume Licensing.<br>
-                        Suite de Securitate (Bitdefender, Sophos).<br>
-                        Managementul Activelor & Conformitate.
-                    </div>
-                    <div class="md:col-span-2 flex justify-end">
-                        <i data-lucide="key" class="w-8 h-8 text-gray-600 group-hover:text-white transition-colors"></i>
-                    </div>
-                </div>
-            </div>
 
-            <!-- Service 3 -->
-            <div class="service-row group border-b border-gray-800 py-12 hover:bg-[#222] transition-colors cursor-pointer relative overflow-hidden">
-                <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center relative z-10">
-                    <div class="md:col-span-1 text-gray-500 font-mono">03</div>
-                    <div class="md:col-span-5">
-                        <h3 class="text-3xl md:text-4xl font-serif italic group-hover:text-blue-500 transition-colors">Dezvoltare & Web</h3>
+                    <!-- Service 2 -->
+                    <div class="group p-8 border-r border-b border-gray-200 hover:bg-white hover:shadow-sm transition-all duration-300 relative overflow-hidden">
+                        <div class="absolute top-0 left-0 w-1 h-0 bg-blue-600 group-hover:h-full transition-all duration-300"></div>
+                        <div class="flex justify-between items-start mb-6">
+                            <span class="font-mono text-xs text-gray-400 tracking-widest">02</span>
+                            <i data-lucide="key" class="w-5 h-5 text-gray-400 group-hover:text-blue-600 transition-colors"></i>
+                        </div>
+                        <h3 class="text-2xl font-serif italic mb-4 text-[#1a1a1a]">Licențiere Software</h3>
+                        <ul class="text-sm text-gray-600 space-y-2">
+                            <li class="flex items-center gap-2"><span class="w-1 h-1 bg-gray-300 rounded-full group-hover:bg-blue-600 transition-colors"></span>Microsoft 365 Volume Licensing</li>
+                            <li class="flex items-center gap-2"><span class="w-1 h-1 bg-gray-300 rounded-full group-hover:bg-blue-600 transition-colors"></span>Securitate (Bitdefender, Sophos)</li>
+                            <li class="flex items-center gap-2"><span class="w-1 h-1 bg-gray-300 rounded-full group-hover:bg-blue-600 transition-colors"></span>Asset Management & Audit</li>
+                        </ul>
                     </div>
-                    <div class="service-text md:col-span-4 text-gray-400 text-sm leading-relaxed opacity-0 translate-y-4 md:opacity-0 md:translate-y-4 md:group-hover:opacity-100 md:group-hover:translate-y-0 transition-all duration-500">
-                        Prezență Web Corporate & E-commerce.<br>
-                        Integrări ERP/CRM Personalizate.<br>
-                        Instrumente de Automatizare Fluxuri.
-                    </div>
-                    <div class="md:col-span-2 flex justify-end">
-                        <i data-lucide="code" class="w-8 h-8 text-gray-600 group-hover:text-white transition-colors"></i>
-                    </div>
-                </div>
-            </div>
 
-            <!-- Service 4 -->
-            <div class="service-row group border-b border-gray-800 py-12 hover:bg-[#222] transition-colors cursor-pointer relative overflow-hidden">
-                <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center relative z-10">
-                    <div class="md:col-span-1 text-gray-500 font-mono">04</div>
-                    <div class="md:col-span-5">
-                        <h3 class="text-3xl md:text-4xl font-serif italic group-hover:text-blue-500 transition-colors">Marketing Strategic</h3>
+                    <!-- Service 3 -->
+                    <div class="group p-8 border-r border-b border-gray-200 hover:bg-white hover:shadow-sm transition-all duration-300 relative overflow-hidden">
+                        <div class="absolute top-0 left-0 w-1 h-0 bg-blue-600 group-hover:h-full transition-all duration-300"></div>
+                        <div class="flex justify-between items-start mb-6">
+                            <span class="font-mono text-xs text-gray-400 tracking-widest">03</span>
+                            <i data-lucide="code" class="w-5 h-5 text-gray-400 group-hover:text-blue-600 transition-colors"></i>
+                        </div>
+                        <h3 class="text-2xl font-serif italic mb-4 text-[#1a1a1a]">Dezvoltare & Web</h3>
+                        <ul class="text-sm text-gray-600 space-y-2">
+                            <li class="flex items-center gap-2"><span class="w-1 h-1 bg-gray-300 rounded-full group-hover:bg-blue-600 transition-colors"></span>Prezență Web & E-commerce</li>
+                            <li class="flex items-center gap-2"><span class="w-1 h-1 bg-gray-300 rounded-full group-hover:bg-blue-600 transition-colors"></span>Integrări ERP/CRM Custom</li>
+                            <li class="flex items-center gap-2"><span class="w-1 h-1 bg-gray-300 rounded-full group-hover:bg-blue-600 transition-colors"></span>Automatizare Fluxuri de Lucru</li>
+                        </ul>
                     </div>
-                    <div class="service-text md:col-span-4 text-gray-400 text-sm leading-relaxed opacity-0 translate-y-4 md:opacity-0 md:translate-y-4 md:group-hover:opacity-100 md:group-hover:translate-y-0 transition-all duration-500">
-                        Generare de Lead-uri B2B.<br>
-                        Redactare Conținut Tehnic.<br>
-                        Poziționare de Brand pentru Tech.
+
+                    <!-- Service 4 -->
+                    <div class="group p-8 border-r border-b border-gray-200 hover:bg-white hover:shadow-sm transition-all duration-300 relative overflow-hidden">
+                        <div class="absolute top-0 left-0 w-1 h-0 bg-blue-600 group-hover:h-full transition-all duration-300"></div>
+                        <div class="flex justify-between items-start mb-6">
+                            <span class="font-mono text-xs text-gray-400 tracking-widest">04</span>
+                            <i data-lucide="trending-up" class="w-5 h-5 text-gray-400 group-hover:text-blue-600 transition-colors"></i>
+                        </div>
+                        <h3 class="text-2xl font-serif italic mb-4 text-[#1a1a1a]">Marketing Strategic</h3>
+                        <ul class="text-sm text-gray-600 space-y-2">
+                            <li class="flex items-center gap-2"><span class="w-1 h-1 bg-gray-300 rounded-full group-hover:bg-blue-600 transition-colors"></span>Generare de Lead-uri B2B</li>
+                            <li class="flex items-center gap-2"><span class="w-1 h-1 bg-gray-300 rounded-full group-hover:bg-blue-600 transition-colors"></span>Redactare Conținut Tehnic</li>
+                            <li class="flex items-center gap-2"><span class="w-1 h-1 bg-gray-300 rounded-full group-hover:bg-blue-600 transition-colors"></span>Brand Positioning IT</li>
+                        </ul>
                     </div>
-                    <div class="md:col-span-2 flex justify-end">
-                        <i data-lucide="trending-up" class="w-8 h-8 text-gray-600 group-hover:text-white transition-colors"></i>
-                    </div>
+
                 </div>
             </div>
         </div>
